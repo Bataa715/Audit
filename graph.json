@@ -1,0 +1,400 @@
+{
+  "graph": {
+    "nodes": {
+      "nextn": {
+        "name": "nextn",
+        "type": "app",
+        "data": {
+          "root": "apps/nextn",
+          "name": "nextn",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/nextn/src",
+          "projectType": "application",
+          "tags": [],
+          "targets": {
+            "build": {
+              "executor": "@nx/next:build",
+              "outputs": [
+                "{projectRoot}/.next"
+              ],
+              "options": {
+                "outputPath": "dist/apps/nextn"
+              },
+              "configurations": {
+                "production": {},
+                "development": {
+                  "outputPath": "dist/apps/nextn"
+                }
+              },
+              "parallelism": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "cache": true
+            },
+            "serve": {
+              "executor": "@nx/next:server",
+              "defaultConfiguration": "development",
+              "options": {
+                "buildTarget": "nextn:build",
+                "dev": true,
+                "port": 9002
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "nextn:build:development",
+                  "dev": true
+                },
+                "production": {
+                  "buildTarget": "nextn:build:production",
+                  "dev": false
+                }
+              },
+              "parallelism": true,
+              "continuous": true
+            },
+            "export": {
+              "executor": "@nx/next:export",
+              "options": {
+                "buildTarget": "nextn:build:production"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:sync": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx cap sync"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:open:android": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx cap open android"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "apk:build": {
+              "executor": "nx:run-commands",
+              "options": {
+                "commands": [
+                  "nx build nextn",
+                  "npx cap sync android",
+                  "cd android && .\\gradlew assembleDebug"
+                ],
+                "parallel": false
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "apk:release": {
+              "executor": "nx:run-commands",
+              "options": {
+                "commands": [
+                  "nx build nextn",
+                  "npx cap sync android",
+                  "cd android && .\\gradlew assembleRelease"
+                ],
+                "parallel": false
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "deploy": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "vercel --prod"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "my-web-workspace": {
+        "name": "my-web-workspace",
+        "type": "app",
+        "data": {
+          "root": ".",
+          "name": "my-web-workspace",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "dev",
+                "build",
+                "build:static",
+                "start",
+                "format",
+                "format:check",
+                "typecheck",
+                "deploy",
+                "genkit:dev",
+                "genkit:watch",
+                "cap:init",
+                "cap:add:android",
+                "cap:sync",
+                "cap:open:android",
+                "cap:build",
+                "apk:build",
+                "apk:release",
+                "nx:graph",
+                "nx:affected"
+              ]
+            },
+            "js": {
+              "packageName": "my-web-workspace",
+              "packageVersion": "0.1.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "dev": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "dev"
+              },
+              "metadata": {
+                "scriptContent": "nx serve nextn",
+                "runCommand": "npm run dev"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "build"
+              },
+              "metadata": {
+                "scriptContent": "nx build nextn",
+                "runCommand": "npm run build"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "cache": true
+            },
+            "build:static": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "build:static"
+              },
+              "metadata": {
+                "scriptContent": "STATIC_EXPORT=true nx build nextn",
+                "runCommand": "npm run build:static"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "start"
+              },
+              "metadata": {
+                "scriptContent": "nx serve nextn --prod",
+                "runCommand": "npm run start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "format": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "format"
+              },
+              "metadata": {
+                "scriptContent": "prettier --write \"apps/**/*.{ts,tsx,js,jsx,json,css}\"",
+                "runCommand": "npm run format"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "format:check": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "format:check"
+              },
+              "metadata": {
+                "scriptContent": "prettier --check \"apps/**/*.{ts,tsx,js,jsx,json,css}\"",
+                "runCommand": "npm run format:check"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "typecheck"
+              },
+              "metadata": {
+                "scriptContent": "tsc --noEmit",
+                "runCommand": "npm run typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "deploy": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "deploy"
+              },
+              "metadata": {
+                "scriptContent": "nx deploy nextn",
+                "runCommand": "npm run deploy"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "genkit:dev": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "genkit:dev"
+              },
+              "metadata": {
+                "scriptContent": "genkit start -- tsx apps/nextn/src/ai/dev.ts",
+                "runCommand": "npm run genkit:dev"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "genkit:watch": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "genkit:watch"
+              },
+              "metadata": {
+                "scriptContent": "genkit start -- tsx --watch apps/nextn/src/ai/dev.ts",
+                "runCommand": "npm run genkit:watch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:init": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "cap:init"
+              },
+              "metadata": {
+                "scriptContent": "npx cap init",
+                "runCommand": "npm run cap:init"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:add:android": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "cap:add:android"
+              },
+              "metadata": {
+                "scriptContent": "npx cap add android",
+                "runCommand": "npm run cap:add:android"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:sync": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "cap:sync"
+              },
+              "metadata": {
+                "scriptContent": "nx cap:sync nextn",
+                "runCommand": "npm run cap:sync"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:open:android": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "cap:open:android"
+              },
+              "metadata": {
+                "scriptContent": "nx cap:open:android nextn",
+                "runCommand": "npm run cap:open:android"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "cap:build": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "cap:build"
+              },
+              "metadata": {
+                "scriptContent": "nx build nextn && npx cap sync",
+                "runCommand": "npm run cap:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "apk:build": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "apk:build"
+              },
+              "metadata": {
+                "scriptContent": "nx apk:build nextn",
+                "runCommand": "npm run apk:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "apk:release": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "apk:release"
+              },
+              "metadata": {
+                "scriptContent": "nx apk:release nextn",
+                "runCommand": "npm run apk:release"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx:graph": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "nx:graph"
+              },
+              "metadata": {
+                "scriptContent": "nx graph",
+                "runCommand": "npm run nx:graph"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx:affected": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "nx:affected"
+              },
+              "metadata": {
+                "scriptContent": "nx affected:build",
+                "runCommand": "npm run nx:affected"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "nextn": [],
+      "my-web-workspace": []
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "name": "nextn",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nextn/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{projectRoot}/.next"],
+      "options": {
+        "outputPath": "dist/apps/nextn"
+      },
+      "configurations": {
+        "production": {},
+        "development": {
+          "outputPath": "dist/apps/nextn"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nextn:build",
+        "dev": true,
+        "port": 9002
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nextn:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "nextn:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "nextn:build:production"
+      }
+    },
+    "cap:sync": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap sync"
+      }
+    },
+    "cap:open:android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap open android"
+      }
+    },
+    "apk:build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build nextn",
+          "npx cap sync android",
+          "cd android && .\\gradlew assembleDebug"
+        ],
+        "parallel": false
+      }
+    },
+    "apk:release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build nextn",
+          "npx cap sync android",
+          "cd android && .\\gradlew assembleRelease"
+        ],
+        "parallel": false
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vercel --prod"
+      }
+    }
+  }
+}

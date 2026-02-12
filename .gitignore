@@ -1,0 +1,6 @@
+node_modules
+.nx/cache
+.next
+*.next/cache
+dist
+build

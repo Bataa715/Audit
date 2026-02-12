@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(uuid())
+  userId        String?      @unique  // Custom user ID (e.g., DAG-EAH-BATAA)
+  email         String       @unique
+  password      String
+  name          String
+  position      String?
+  profileImage  String?      // Profile image URL or base64
+  departmentId  String?
+  department    Department?  @relation(fields: [departmentId], references: [id])
+  isAdmin       Boolean      @default(false)
+  isActive      Boolean      @default(true)
+  allowedTools  String?      // JSON array stored as string
+  lastLoginAt   DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  
+  // Fitness relations
+  exercises     Exercise[]
+  workoutLogs   WorkoutLog[]
+  bodyStats     BodyStats[]
+  
+  @@map("users")
+}
+
+model Department {
+  id            String   @id @default(uuid())
+  name          String   @unique
+  description   String?
+  manager       String?
+  employeeCount Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  users         User[]
+  
+  @@map("departments")
+}
+
+// Fitness Models
+model Exercise {
+  id          String       @id @default(uuid())
+  name        String
+  category    String?
+  description String?
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime     @default(now())
+  workoutLogs WorkoutLog[]
+  
+  @@map("exercises")
+}
+
+model WorkoutLog {
+  id          String    @id @default(uuid())
+  exerciseId  String
+  exercise    Exercise  @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sets        Int?
+  repetitions Int?
+  weight      Float?
+  notes       String?
+  date        DateTime  @default(now())
+  
+  @@map("workout_logs")
+}
+
+model BodyStats {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  weight    Float
+  height    Float
+  date      DateTime @default(now())
+  
+  @@map("body_stats")
+}

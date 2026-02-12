@@ -1,0 +1,57 @@
+services:
+  # Backend Service - NestJS API
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    container_name: internal-audit-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=file:/app/prisma/dev.db
+      - JWT_SECRET=${JWT_SECRET:-golomt-internal-audit-2026-secret-key}
+    volumes:
+      - backend-data:/app/prisma
+    networks:
+      - internal-audit-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Service - Next.js
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: internal-audit-frontend
+    restart: unless-stopped
+    ports:
+      - "9002:9002"
+    environment:
+      - NODE_ENV=production
+      - PORT=9002
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    networks:
+      - internal-audit-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:9002"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  internal-audit-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+    driver: local

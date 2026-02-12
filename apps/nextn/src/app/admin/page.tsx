@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { usersApi } from '@/lib/api';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Users,
   Shield,
@@ -19,10 +19,15 @@ import {
   BarChart3,
   Lock,
   Loader2,
+  ChevronRight,
+  Zap,
+  Target,
+  Award,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { DEPARTMENTS } from '@/lib/constants';
+import { Progress } from '@/components/ui/progress';
 
 interface DashboardStats {
   totalUsers: number;
@@ -149,27 +154,33 @@ export default function AdminDashboard() {
   const quickActions = [
     {
       title: 'Хэрэглэгчид',
-      description: 'Хэрэглэгч удирдах',
+      description: 'Бүх хэрэглэгчийг харах, удирдах',
       icon: Users,
       href: '/admin/users',
-      gradient: 'from-blue-500 to-cyan-500',
-      shadowColor: 'shadow-blue-500/20',
+      gradient: 'from-blue-600 via-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-500/10',
+      iconColor: 'text-blue-400',
+      count: stats.totalUsers,
     },
     {
       title: 'Хэлтсүүд',
-      description: 'Хэлтэс удирдах',
+      description: 'Байгууллагын хэлтсүүдийг удирдах',
       icon: Building2,
       href: '/admin/departments',
-      gradient: 'from-purple-500 to-pink-500',
-      shadowColor: 'shadow-purple-500/20',
+      gradient: 'from-purple-600 via-purple-500 to-pink-500',
+      bgColor: 'bg-purple-500/10',
+      iconColor: 'text-purple-400',
+      count: DEPARTMENTS.length,
     },
     {
       title: 'Хэрэгслүүд',
-      description: 'Эрх олгох',
+      description: 'Эрх олгох, эрхийг удирдах',
       icon: Wrench,
       href: '/admin/tools',
-      gradient: 'from-emerald-500 to-teal-500',
-      shadowColor: 'shadow-emerald-500/20',
+      gradient: 'from-emerald-600 via-emerald-500 to-teal-500',
+      bgColor: 'bg-emerald-500/10',
+      iconColor: 'text-emerald-400',
+      count: stats.activeUsers,
     },
   ];
 
@@ -178,91 +189,162 @@ export default function AdminDashboard() {
       title: 'Нийт хэрэглэгч',
       value: stats.totalUsers,
       icon: Users,
-      gradient: 'from-blue-500 to-blue-600',
+      gradient: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-500/10',
+      iconColor: 'text-blue-400',
       description: 'Бүртгэлтэй',
+      trend: '+12%',
+      trendUp: true,
     },
     {
       title: 'Идэвхтэй',
       value: stats.activeUsers,
       icon: UserCheck,
-      gradient: 'from-emerald-500 to-emerald-600',
+      gradient: 'from-emerald-500 to-teal-500',
+      bgColor: 'bg-emerald-500/10',
+      iconColor: 'text-emerald-400',
       description: 'Эрхтэй',
+      trend: '+8%',
+      trendUp: true,
     },
     {
       title: 'Идэвхгүй',
       value: stats.inactiveUsers,
       icon: UserX,
-      gradient: 'from-red-500 to-red-600',
+      gradient: 'from-orange-500 to-red-500',
+      bgColor: 'bg-orange-500/10',
+      iconColor: 'text-orange-400',
       description: 'Хаагдсан',
+      trend: '-3%',
+      trendUp: false,
     },
     {
-      title: '24 цагт',
+      title: 'Сүүлийн 24 цагт',
       value: stats.recentActivity,
       icon: Activity,
-      gradient: 'from-amber-500 to-orange-500',
+      gradient: 'from-amber-500 to-yellow-500',
+      bgColor: 'bg-amber-500/10',
+      iconColor: 'text-amber-400',
       description: 'Нэвтэрсэн',
+      trend: 'Өнөөдөр',
+      trendUp: true,
     },
   ];
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      {/* Modernized Animated Background with Gradients */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-blue-950/20 to-slate-950">
+        {/* Animated gradient orbs */}
         <motion.div
-          className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-amber-600/10 to-transparent rounded-full blur-3xl"
-          animate={{ x: [0, 100, 0], y: [0, 50, 0], scale: [1, 1.1, 1] }}
+          className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         />
         <motion.div
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-600/10 to-transparent rounded-full blur-3xl"
-          animate={{ x: [0, -100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -80, 0],
+            y: [0, -60, 0],
+            scale: [1, 1.3, 1],
+            rotate: [0, -90, 0],
+          }}
           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-emerald-600/15 to-teal-600/15 rounded-full blur-3xl"
+          animate={{
+            x: [-100, 100, -100],
+            y: [-80, 80, -80],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+        />
 
-        {/* Floating particles */}
+        {/* Floating particles with improved animation */}
         {PARTICLE_POSITIONS.map((pos, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-amber-500/30 rounded-full"
-            style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
-            animate={{ y: [0, -20, 0], opacity: [0.3, 0.7, 0.3] }}
+            className="absolute w-1.5 h-1.5 rounded-full"
+            style={{
+              left: `${pos.left}%`,
+              top: `${pos.top}%`,
+              background: `radial-gradient(circle, ${
+                i % 3 === 0
+                  ? 'rgba(59, 130, 246, 0.6)'
+                  : i % 3 === 1
+                    ? 'rgba(168, 85, 247, 0.6)'
+                    : 'rgba(16, 185, 129, 0.6)'
+              }, transparent)`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
             transition={{
-              duration: 3 + (i % 4),
+              duration: 4 + (i % 5),
               repeat: Infinity,
-              delay: (i % 8) * 0.3,
+              delay: (i % 10) * 0.2,
+              ease: 'easeInOut',
             }}
           />
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-8">
-        {/* Header */}
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
+        {/* Enhanced Header with better visual hierarchy */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 shadow-lg shadow-amber-500/30">
-              <Shield className="w-8 h-8 text-white" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold text-white">Админ удирдлага</h1>
-              <p className="text-slate-400 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-500" />
-                Тавтай морилно уу, {user.name}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50" />
+              <div className="relative p-4 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-2xl">
+                <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+              </div>
+            </motion.div>
+            <div className="flex-1">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 flex items-center gap-3">
+                Админ хяналтын самбар
+                <Badge className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border-blue-400/30 text-xs px-3 py-1">
+                  v2.0
+                </Badge>
+              </h1>
+              <p className="text-slate-300 flex items-center gap-2 text-sm sm:text-base">
+                <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
+                Сайн байна уу, <span className="font-semibold text-white">{user.name}</span>
+                <span className="hidden sm:inline text-slate-500">•</span>
+                <span className="hidden sm:inline text-slate-400">
+                  {new Date().toLocaleDateString('mn-MN', {
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Stats Grid */}
+        {/* Enhanced Stats Grid with animations and trends */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8"
+          className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-8"
         >
           {statCards.map((stat, index) => {
             const Icon = stat.icon;
@@ -272,24 +354,42 @@ export default function AdminDashboard() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group"
               >
-                <Card className="bg-slate-800/50 backdrop-blur-xl border-slate-700/50 overflow-hidden">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div
-                        className={`p-3 rounded-xl bg-gradient-to-br ${stat.gradient} shadow-lg`}
+                <Card className="relative overflow-hidden bg-slate-900/60 backdrop-blur-xl border-slate-700/50 hover:border-slate-600/80 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  
+                  <CardContent className="p-6 relative">
+                    <div className="flex items-start justify-between mb-4">
+                      <motion.div
+                        className={`p-3 rounded-xl ${stat.bgColor} backdrop-blur-sm`}
+                        whileHover={{ rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 0.5 }}
                       >
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-                      <Badge className="bg-slate-700/50 text-slate-300 border-0">
-                        {stat.description}
+                        <Icon className={`w-6 h-6 ${stat.iconColor}`} />
+                      </motion.div>
+                      <Badge
+                        className={`${
+                          stat.trendUp ? 'bg-emerald-500/20 text-emerald-300' : 'bg-orange-500/20 text-orange-300'
+                        } border-0 text-xs font-semibold`}
+                      >
+                        {stat.trend}
                       </Badge>
                     </div>
-                    <div className="text-4xl font-bold text-white mb-1">
-                      {stat.value}
+                    <div>
+                      <motion.div
+                        className="text-4xl font-bold text-white mb-2"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.3 + index * 0.1, type: 'spring' }}
+                      >
+                        {stat.value}
+                      </motion.div>
+                      <p className="text-slate-400 text-sm mb-1">{stat.title}</p>
+                      <p className="text-slate-500 text-xs">{stat.description}</p>
                     </div>
-                    <p className="text-slate-400 text-sm">{stat.title}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -297,18 +397,18 @@ export default function AdminDashboard() {
           })}
         </motion.div>
 
-        {/* Quick Actions */}
+        {/* Quick Actions with enhanced cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="mb-8"
         >
-          <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <BarChart3 className="w-5 h-5 text-amber-500" />
-            Түргэн үйлдэл
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="flex items-center gap-3 mb-6">
+            <Zap className="w-5 h-5 text-amber-400" />
+            <h2 className="text-2xl font-bold text-white">Түргэн үйлдэл</h2>
+          </div>
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-3">
             {quickActions.map((action, index) => {
               const Icon = action.icon;
               return (
@@ -317,31 +417,44 @@ export default function AdminDashboard() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Link href={action.href}>
-                    <Card
-                      className={`group cursor-pointer bg-slate-800/50 backdrop-blur-xl border-slate-700/50 hover:border-slate-600 transition-all shadow-xl ${action.shadowColor}`}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div
-                              className={`p-4 rounded-2xl bg-gradient-to-br ${action.gradient} shadow-lg`}
-                            >
-                              <Icon className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors">
-                                {action.title}
-                              </h3>
-                              <p className="text-sm text-slate-400">
-                                {action.description}
-                              </p>
-                            </div>
+                  <Link href={action.href} className="block">
+                    <Card className="group cursor-pointer bg-slate-900/60 backdrop-blur-xl border-slate-700/50 hover:border-slate-600/80 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden relative">
+                      {/* Animated gradient background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${action.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                      
+                      <CardContent className="p-6 relative">
+                        <div className="flex items-center justify-between mb-4">
+                          <motion.div
+                            className={`p-4 rounded-2xl ${action.bgColor} backdrop-blur-sm`}
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            <Icon className={`w-7 h-7 ${action.iconColor}`} />
+                          </motion.div>
+                          <motion.div
+                            className="flex items-center gap-2"
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          >
+                            <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" />
+                          </motion.div>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all mb-2">
+                            {action.title}
+                          </h3>
+                          <p className="text-slate-400 text-sm mb-3">
+                            {action.description}
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <Target className="w-4 h-4 text-slate-600" />
+                            <span className="text-xs text-slate-500 font-semibold">
+                              {action.count} Нэгж
+                            </span>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                         </div>
                       </CardContent>
                     </Card>
@@ -352,94 +465,151 @@ export default function AdminDashboard() {
           </div>
         </motion.div>
 
-        {/* Department Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <Card className="bg-slate-800/50 backdrop-blur-xl border-slate-700/50">
-            <CardHeader>
-              <CardTitle className="text-white flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-amber-500" />
-                Хэлтсүүдийн статистик
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                {Object.entries(stats.usersByDepartment)
-                  .filter(([_, count]) => count > 0)
-                  .sort((a, b) => b[1] - a[1])
-                  .map(([dept, count], index) => (
-                    <motion.div
-                      key={dept}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 + index * 0.05 }}
-                      className="flex items-center justify-between p-4 rounded-xl bg-slate-700/30 border border-slate-700/50"
-                    >
-                      <span className="text-slate-300 truncate">{dept}</span>
-                      <Badge className="bg-amber-500/20 text-amber-400 border-0 font-bold">
-                        {count}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                {Object.entries(stats.usersByDepartment).filter(
-                  ([_, count]) => count > 0
-                ).length === 0 && (
-                  <div className="col-span-full text-center py-8 text-slate-400">
-                    Хэрэглэгч бүртгэгдээгүй байна
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        {/* Department Stats with progress bars */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <Card className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-3">
+                  <Building2 className="w-6 h-6 text-purple-400" />
+                  Хэлтсүүдийн статистик
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {Object.entries(stats.usersByDepartment)
+                    .filter(([_, count]) => count > 0)
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([dept, count], index) => {
+                      const percentage =
+                        (count / stats.totalUsers) * 100 || 0;
+                      return (
+                        <motion.div
+                          key={dept}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.6 + index * 0.05 }}
+                          className="space-y-2"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-slate-300 text-sm font-medium truncate flex-1">
+                              {dept}
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-slate-400 text-xs">
+                                {percentage.toFixed(0)}%
+                              </span>
+                              <Badge className="bg-purple-500/20 text-purple-300 border-0 font-bold">
+                                {count}
+                              </Badge>
+                            </div>
+                          </div>
+                          <Progress
+                            value={percentage}
+                            className="h-2 bg-slate-800/50"
+                          />
+                        </motion.div>
+                      );
+                    })}
+                  {Object.entries(stats.usersByDepartment).filter(
+                    ([_, count]) => count > 0
+                  ).length === 0 && (
+                    <div className="text-center py-12">
+                      <Users className="w-12 h-12 text-slate-600 mx-auto mb-3" />
+                      <p className="text-slate-400">
+                        Хэрэглэгч бүртгэгдээгүй байна
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-        {/* System Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-8"
-        >
-          <Card className="bg-slate-800/50 backdrop-blur-xl border-slate-700/50">
-            <CardHeader>
-              <CardTitle className="text-white flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-amber-500" />
-                Системийн мэдээлэл
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-3">
-                <div className="p-4 rounded-xl bg-slate-700/30 border border-slate-700/50">
-                  <p className="text-slate-400 text-sm mb-1">Админ эрхтэй</p>
-                  <p className="text-2xl font-bold text-white">
-                    {stats.adminUsers}{' '}
-                    <span className="text-sm font-normal text-slate-400">
-                      хүн
-                    </span>
-                  </p>
+          {/* System Info with enhanced design */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <Card className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-3">
+                  <BarChart3 className="w-6 h-6 text-emerald-400" />
+                  Системийн мэдээлэл
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="p-5 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-slate-400 text-sm font-medium">
+                        Админ эрхтэй
+                      </p>
+                      <Award className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <p className="text-3xl font-bold text-white">
+                      {stats.adminUsers}
+                      <span className="text-sm font-normal text-slate-400 ml-2">
+                        хүн
+                      </span>
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="p-5 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-slate-400 text-sm font-medium">
+                        Идэвхтэй хувь
+                      </p>
+                      <TrendingUp className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <p className="text-3xl font-bold text-emerald-400">
+                      {stats.totalUsers > 0
+                        ? Math.round(
+                            (stats.activeUsers / stats.totalUsers) * 100
+                          )
+                        : 0}
+                      %
+                    </p>
+                    <Progress
+                      value={
+                        stats.totalUsers > 0
+                          ? (stats.activeUsers / stats.totalUsers) * 100
+                          : 0
+                      }
+                      className="h-2 mt-3 bg-slate-800"
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="p-5 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-slate-400 text-sm font-medium">
+                        Хэлтсүүдийн тоо
+                      </p>
+                      <Building2 className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <p className="text-3xl font-bold text-white">
+                      {DEPARTMENTS.length}
+                    </p>
+                  </motion.div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-700/30 border border-slate-700/50">
-                  <p className="text-slate-400 text-sm mb-1">Идэвхтэй хувь</p>
-                  <p className="text-2xl font-bold text-emerald-400">
-                    {stats.totalUsers > 0
-                      ? Math.round((stats.activeUsers / stats.totalUsers) * 100)
-                      : 0}
-                    %
-                  </p>
-                </div>
-                <div className="p-4 rounded-xl bg-slate-700/30 border border-slate-700/50">
-                  <p className="text-slate-400 text-sm mb-1">Хэлтсүүдийн тоо</p>
-                  <p className="text-2xl font-bold text-white">
-                    {DEPARTMENTS.length}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

@@ -19925,3 +19925,711 @@ Time for 'deserialize daemon response - HASH_GLOB' 0.027700001373887062
 [NX v22.4.0 Daemon Server] - 2026-02-12T07:37:07.267Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v22.4.0 Daemon Server] - 2026-02-12T07:37:07.267Z - Time taken for 'total execution time for createProjectGraph()' 16.18379999883473ms
 Time for 'build typescript dependencies' 0.0284000001847744
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.246Z - [Client] Starting new daemon server in background
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.254Z - [Client] Waiting for server (max: 6000 attempts, 10ms interval)
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.555Z - New daemon starting from: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\node_modules\nx\src\daemon\server\server.js
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.556Z - New daemon __dirname: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\node_modules\nx\src\daemon\server
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.556Z - New daemon nxVersion: 22.4.0
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.556Z - New daemon getInstalledNxVersion(): 22.4.0
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.560Z - [Server] Starting outdated check interval (20ms)
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.562Z - Started listening on: \\.\pipe\nx\C:\Users\Dell\AppData\Local\Temp\e56b0482e288bb10ce99\d.sock
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.566Z - [WATCHER]: Subscribed to changes within: C:\Users\Dell\Documents\Golomt 2026\Internal Audit (native)
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.567Z - [NX-CONSOLE]: Pulling latest Nx (latest) to check console status...
+Fetching nx...
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.578Z - [Client] Server available after 20 attempts
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.579Z - [Client] Daemon server started, pid=35704
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.580Z - [Messenger] Setting up socket listeners
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.581Z - [Messenger] listen() complete
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.583Z - [Messenger] Sending message type: REQUEST_PROJECT_GRAPH
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:04.584Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.920Z - Established a connection. Number of open connections: 1
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.921Z - Established a connection. Number of open connections: 2
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.923Z - Closed a connection. Number of open connections: 1
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.929Z - Received raw message of length 32
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.929Z - Received json message of type REQUEST_PROJECT_GRAPH
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:04.930Z - [REQUEST]: Client Request for Project Graph Received
+Time for 'plugin worker 37936 code loading' 5.914300000000001
+Time for 'plugin worker 34708 code loading' 6.789300000000001
+Time for 'plugin worker 81624 code loading' 5.961600000000001
+Time for 'plugin worker 59236 code loading' 6.077500000000001
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.194Z - Time taken for 'Load Nx Plugin: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\node_modules\nx\src\plugins\project-json\build-nodes\project-json' 295.8606ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.201Z - Time taken for 'Load Nx Plugin: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\node_modules\nx\src\plugins\package-json' 304.0995999999999ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.208Z - Time taken for 'loadDefaultNxPlugins' 312.9731999999999ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.427Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.428Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.428Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.432Z - Reusing in-memory cached project graph because no files changed.
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.438Z - Time taken for 'loadSpecifiedNxPlugins' 528.7163999999999ms
+Time for 'nx/core/project-json:createNodes' 0.8643999999999892
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.442Z - Established a connection. Number of open connections: 2
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.442Z - Closed a connection. Number of open connections: 1
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.443Z - Established a connection. Number of open connections: 2
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:05.449Z - [Messenger] Setting up socket listeners
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:05.450Z - [Messenger] listen() complete
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:05.451Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:05.452Z - [Messenger] Message sent
+Time for 'nx/core/package-json:createNodes' 7.315099999999916
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 24.750999999999976
+Time for 'daemon-message-serialization-HASH_GLOB' 0.13810000000000855
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.679Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.679Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.681Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.681Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.681Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.682Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:05.682Z - Handled json message HASH_GLOB. Handling time: 2. Response time: 1.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:05.688Z - [Messenger] Received message, length: 21
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.066Z - Time taken for 'build-project-configs' 610.8003999999999ms
+Time for '@nx/next/plugin:createNodes' 596.3593999999998
+Time for 'HASH_GLOB round trip' 237.64259999999996
+Time for 'deserialize daemon response - HASH_GLOB' 0.17189999999993688
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:34:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:36:42 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:44:25 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:78:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:78:34 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:92:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:92:34 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:109:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:109:23 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:132:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:132:34 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:149:0 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+DEBUG nx::native::plugins::js::ts_import_locators: C:\Users\Dell\Documents\Golomt 2026\Internal Audit\apps\nextn\src\components\ui\form.tsx:149:44 Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.604Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.616Z - Wrote project graph cache to C:\Users\Dell\Documents\Golomt 2026\Internal Audit\.nx\workspace-data\project-graph.json
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.616Z - Serializing response for REQUEST_PROJECT_GRAPH message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.616Z - Responding to REQUEST_PROJECT_GRAPH message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.616Z - [REQUEST]: Responding to the client. project-graph
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.617Z - Time taken for 'total for creating and serializing project graph' 1686.3544000000002ms
+Time for 'build typescript dependencies' 470.9166
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.618Z - Done responding to the client project-graph
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.618Z - Handled json message REQUEST_PROJECT_GRAPH. Handling time: 1687. Response time: 2.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.624Z - [Messenger] Received message, length: 651323
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.629Z - [Messenger] Sending message type: PRE_TASKS_EXECUTION
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.630Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.625Z - Received raw message of length 1221
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.625Z - Received json message of type PRE_TASKS_EXECUTION
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - Serializing response for PRE_TASKS_EXECUTION message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - Responding to PRE_TASKS_EXECUTION message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - Time taken for 'preTasksExecution' 1.0960999999997512ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - Done responding to the client handleRunPreTasksExecution
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.627Z - Handled json message PRE_TASKS_EXECUTION. Handling time: 2. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.632Z - [Messenger] Received message, length: 2
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.675Z - [Messenger] Sending message type: HASH_TASKS
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.676Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.671Z - Received raw message of length 8354
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.672Z - Received json message of type HASH_TASKS
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.672Z - Reusing in-memory cached project graph because no files changed.
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.682Z - Wrote project graph cache to C:\Users\Dell\Documents\Golomt 2026\Internal Audit\.nx\workspace-data\project-graph.json
+DEBUG nx::native::tasks::hash_planner: get_plans_internal COMPLETED in 4.0341ms - processed 1 tasks (setup: 2.8783ms, parallel_planning: 1.1442ms)
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "8817415434300354792" (".gitignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "4583427669772883073" ("nx.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Hash Value: "6304112456093659273"
+DEBUG nx::native::tasks::task_hasher: hash_plans COMPLETED in 6.325ms - processed 1 plans (setup: 541.2µs, hashing: 5.7734ms, assembly: 2.8149ms)
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.703Z - Serializing response for HASH_TASKS message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.703Z - Responding to HASH_TASKS message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.703Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.703Z - Time taken for 'write cache' 9.572099999999864ms
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.709Z - [Messenger] Received message, length: 67135
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.705Z - Done responding to the client handleHashTasks
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.705Z - Handled json message HASH_TASKS. Handling time: 31. Response time: 2.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.721Z - [Messenger] Sending message type: GET_ESTIMATED_TASK_TIMINGS
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.721Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.719Z - Received raw message of length 115
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.719Z - Received json message of type GET_ESTIMATED_TASK_TIMINGS
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.723Z - Serializing response for GET_ESTIMATED_TASK_TIMINGS message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.723Z - Responding to GET_ESTIMATED_TASK_TIMINGS message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.723Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.723Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:06.723Z - Handled json message GET_ESTIMATED_TASK_TIMINGS. Handling time: 4. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:07:06.728Z - [Messenger] Received message, length: 32
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:08.708Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:10.024Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:10.091Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:19.491Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:20.256Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:21.109Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:21.207Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:23.192Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:23.385Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:23.500Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:30.986Z - [NX-CONSOLE]: Successfully pulled latest Nx to C:\Users\Dell\AppData\Local\Temp\tmp-35704-cabmmuspPNCk
+[NX v22.5.0 Daemon Server] - 2026-02-12T15:07:31.231Z - [NX-CONSOLE]: Using local implementation (NX_USE_LOCAL=true or inner call)
+DEBUG nx::native::ide::install: Detected editor: VSCode
+DEBUG nx::native::ide::install: Checking if Nx Console extension is installed with: code.cmd --list-extensions
+DEBUG nx::native::ide::install: Nx Console extension is not installed
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:32.426Z - [NX-CONSOLE]: Console status check completed, shouldPrompt: false
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:32.428Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:32.692Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:32.785Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:32.893Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:33.223Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:34.188Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:34.385Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:35.137Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.189Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.421Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.567Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.640Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.704Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.806Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:36.871Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.002Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.056Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.116Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.203Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.303Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.403Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:07:37.455Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:02.337Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:02.393Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:02.465Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:04.706Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:04.758Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:04.814Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:04.979Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:05.003Z - [Messenger] Sending message type: RECORD_OUTPUTS_HASH
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:05.004Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.005Z - Received raw message of length 100
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.005Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.025Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.025Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.025Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:05.025Z - [Messenger] Received message, length: 2
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.027Z - Done responding to the client recordOutputsHash
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.027Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 20. Response time: 2.
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:05.037Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:09.994Z - [Messenger] Sending message type: RECORD_TASK_RUNS
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:09.994Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.995Z - Received raw message of length 217
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.995Z - Received json message of type RECORD_TASK_RUNS
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.997Z - Serializing response for RECORD_TASK_RUNS message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.997Z - Responding to RECORD_TASK_RUNS message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.997Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.997Z - Done responding to the client handleRecordTaskRuns
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.997Z - Handled json message RECORD_TASK_RUNS. Handling time: 2. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:09.997Z - [Messenger] Received message, length: 4
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:09.998Z - [Messenger] Sending message type: GET_FLAKY_TASKS
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:09.998Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.999Z - Received raw message of length 60
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:09.999Z - Received json message of type GET_FLAKY_TASKS
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.000Z - Serializing response for GET_FLAKY_TASKS message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.000Z - Responding to GET_FLAKY_TASKS message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.000Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.000Z - Done responding to the client handleGetFlakyTasks
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.000Z - Handled json message GET_FLAKY_TASKS. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:10.000Z - [Messenger] Received message, length: 2
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:10.003Z - [Messenger] Sending message type: POST_TASKS_EXECUTION
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:10.005Z - [Messenger] Message sent
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.007Z - Received raw message of length 71606
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.008Z - Received json message of type POST_TASKS_EXECUTION
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - Serializing response for POST_TASKS_EXECUTION message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - Responding to POST_TASKS_EXECUTION message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - Time taken for 'postTasksExecution' 0.4187999999994645ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - Done responding to the client handleRunPostTasksExecution
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.009Z - Handled json message POST_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:10.009Z - [Messenger] Received message, length: 4
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:10.017Z - Closed a connection. Number of open connections: 1
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.684Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.684Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.685Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.790Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.790Z - [REQUEST]: Dockerfile,pm2.config.js
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.790Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.793Z - Time taken for 'hash changed files from watcher' 1.3834000000060769ms
+Time for 'nx/core/project-json:createNodes' 1.042700000005425
+Time for 'nx/core/package-json:createNodes' 2.2606999999989057
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:46.802Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:46.803Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.03500000000349246
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.797Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.797Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.798Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.798Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.798Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.798Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.798Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:46.804Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 10.475399999995716
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.822Z - Time taken for 'build-project-configs' 23.07510000000184ms
+Time for '@nx/next/plugin:createNodes' 19.53509999999369
+Time for 'HASH_GLOB round trip' 2.409700000003795
+Time for 'deserialize daemon response - HASH_GLOB' 0.02010000000882428
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.843Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.844Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.844Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+Time for 'build typescript dependencies' 2.5512000000016997
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:46.844Z - Time taken for 'total execution time for createProjectGraph()' 24.64669999999751ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:48.970Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:48.971Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:48.971Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.183Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.183Z - [REQUEST]: pm2.config.js,Dockerfile
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.183Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.186Z - Time taken for 'hash changed files from watcher' 0.4017000000021653ms
+Time for 'nx/core/project-json:createNodes' 0.6876000000047497
+Time for 'nx/core/package-json:createNodes' 1.409399999989546
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:49.196Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:49.197Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.03949999999895226
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.191Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.191Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.192Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.192Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.192Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.192Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.192Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:08:49.198Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 9.26249999999709
+Time for '@nx/next/plugin:createNodes' 13.074900000006892
+Time for 'HASH_GLOB round trip' 2.783499999990454
+Time for 'deserialize daemon response - HASH_GLOB' 0.01999999998952262
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.207Z - Time taken for 'build-project-configs' 16.480899999995017ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.225Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.225Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.225Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:08:49.225Z - Time taken for 'total execution time for createProjectGraph()' 20.73859999999695ms
+Time for 'build typescript dependencies' 0.022299999996903352
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.412Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.412Z - [WATCHER]: build.ps1 was deleted
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.413Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.816Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.816Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.816Z - [REQUEST]: build.ps1
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.820Z - Time taken for 'hash changed files from watcher' 0.22140000003855675ms
+Time for 'nx/core/project-json:createNodes' 0.7232999999541789
+Time for 'nx/core/package-json:createNodes' 1.5167000000365078
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:47.823Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:47.823Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.036300000036135316
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.825Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.825Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.826Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.826Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.826Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.826Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.826Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:47.825Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 8.101299999980256
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.842Z - Time taken for 'build-project-configs' 16.491999999969266ms
+Time for '@nx/next/plugin:createNodes' 12.62210000003688
+Time for 'HASH_GLOB round trip' 2.2837999999755993
+Time for 'deserialize daemon response - HASH_GLOB' 0.025400000042282045
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.858Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.859Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.859Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:47.859Z - Time taken for 'total execution time for createProjectGraph()' 19.586299999966286ms
+Time for 'build typescript dependencies' 0.022999999928288162
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:58.732Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:58.732Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:58.732Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.534Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.534Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.534Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.536Z - Time taken for 'hash changed files from watcher' 0.246599999954924ms
+Time for 'nx/core/project-json:createNodes' 0.5246000000042841
+Time for 'nx/core/package-json:createNodes' 1.1759999999776483
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:59.539Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:59.539Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.026400000089779496
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.541Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.541Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.542Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.542Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.542Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.542Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.542Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:16:59.541Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 8.773000000044703
+Time for '@nx/next/plugin:createNodes' 11.73519999999553
+Time for 'HASH_GLOB round trip' 2.240499999956228
+Time for 'deserialize daemon response - HASH_GLOB' 0.02529999997932464
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.559Z - Time taken for 'build-project-configs' 15.751500000013039ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.576Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.577Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.577Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:16:59.577Z - Time taken for 'total execution time for createProjectGraph()' 20.429200000013225ms
+Time for 'build typescript dependencies' 2.2445999999763444
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:01.296Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:01.297Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:01.297Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.911Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.911Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.911Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.913Z - Time taken for 'hash changed files from watcher' 0.2706000000471249ms
+Time for 'nx/core/project-json:createNodes' 0.5990000000456348
+Time for 'nx/core/package-json:createNodes' 1.2624000000068918
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:02.915Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:02.915Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.029800000018440187
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.917Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.917Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.918Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.918Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.918Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.918Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.918Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:02.917Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.931100000045262
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.933Z - Time taken for 'build-project-configs' 14.549200000008568ms
+Time for '@nx/next/plugin:createNodes' 12.318599999998696
+Time for 'HASH_GLOB round trip' 2.306899999966845
+Time for 'deserialize daemon response - HASH_GLOB' 0.025999999954365194
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.948Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.948Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.948Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:02.948Z - Time taken for 'total execution time for createProjectGraph()' 17.96779999998398ms
+Time for 'build typescript dependencies' 0.025400000042282045
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:11.314Z - [WATCHER]: docker-compose.yml was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:11.314Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:11.314Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.458Z - [WATCHER]: docker-compose.yml was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.458Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.458Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.515Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.515Z - [REQUEST]: docker-compose.yml
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.515Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.518Z - Time taken for 'hash changed files from watcher' 0.25650000001769513ms
+Time for 'nx/core/project-json:createNodes' 0.4078000000445172
+Time for 'nx/core/package-json:createNodes' 1.1925999999511987
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:14.520Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:14.520Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.029399999999441206
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.522Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.522Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.523Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.523Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.523Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.523Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.523Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:17:14.522Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.698299999930896
+Time for '@nx/next/plugin:createNodes' 11.830300000030547
+Time for 'HASH_GLOB round trip' 2.8412000000244007
+Time for 'deserialize daemon response - HASH_GLOB' 0.021500000031664968
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.537Z - Time taken for 'build-project-configs' 14.698699999949895ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.555Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.556Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.556Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:17:14.556Z - Time taken for 'total execution time for createProjectGraph()' 19.767300000065006ms
+Time for 'build typescript dependencies' 1.8462000000290573
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:21.598Z - [WATCHER]: Dockerfile was deleted
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:21.599Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:21.599Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.001Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.001Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.001Z - [REQUEST]: Dockerfile
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.004Z - Time taken for 'hash changed files from watcher' 0.1929000000236556ms
+Time for 'nx/core/project-json:createNodes' 0.5664000000106171
+Time for 'nx/core/package-json:createNodes' 1.4418999999761581
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:18:28.009Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:18:28.010Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.036699999938718975
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.010Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.010Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.011Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.011Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.011Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.011Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.012Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 1.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:18:28.012Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 8.947199999936856
+Time for '@nx/next/plugin:createNodes' 15.133299999986775
+Time for 'HASH_GLOB round trip' 2.976799999945797
+Time for 'deserialize daemon response - HASH_GLOB' 0.04569999990053475
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.030Z - Time taken for 'build-project-configs' 19.31589999992866ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.048Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.049Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.049Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:18:28.049Z - Time taken for 'total execution time for createProjectGraph()' 22.65830000001006ms
+Time for 'build typescript dependencies' 0.030000000027939677
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:22:56.792Z - [WATCHER]: Dockerfile was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:22:56.792Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:22:56.792Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.195Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.195Z - [REQUEST]: Dockerfile
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.195Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.201Z - Time taken for 'hash changed files from watcher' 0.5435999999754131ms
+Time for 'nx/core/project-json:createNodes' 0.6814999999478459
+Time for 'nx/core/package-json:createNodes' 3.09519999998156
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:23:03.209Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:23:03.210Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.06820000009611249
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.211Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.211Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.213Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.213Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.213Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.213Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.213Z - Handled json message HASH_GLOB. Handling time: 2. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:23:03.214Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 11.580599999986589
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.240Z - Time taken for 'build-project-configs' 30.87430000002496ms
+Time for '@nx/next/plugin:createNodes' 25.928399999975227
+Time for 'HASH_GLOB round trip' 6.286199999973178
+Time for 'deserialize daemon response - HASH_GLOB' 0.06300000008195639
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.266Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.267Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.267Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:23:03.267Z - Time taken for 'total execution time for createProjectGraph()' 31.927999999956228ms
+Time for 'build typescript dependencies' 4.759300000034273
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:11.707Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:11.707Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:11.707Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:16.224Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:16.224Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:16.224Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.108Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.108Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.108Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.110Z - Time taken for 'hash changed files from watcher' 0.3009000001475215ms
+Time for 'nx/core/project-json:createNodes' 0.48200000007636845
+Time for 'nx/core/package-json:createNodes' 1.2712999999057502
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:25:18.113Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:25:18.113Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.03429999994114041
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.114Z - Handled json message HASH_GLOB. Handling time: 0. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:25:18.115Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.03070000000298
+Time for '@nx/next/plugin:createNodes' 10.419600000139326
+Time for 'HASH_GLOB round trip' 2.0578000000678003
+Time for 'deserialize daemon response - HASH_GLOB' 0.02980000013485551
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.129Z - Time taken for 'build-project-configs' 13.646899999817833ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.146Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.147Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.147Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:25:18.147Z - Time taken for 'total execution time for createProjectGraph()' 20.31830000015907ms
+Time for 'build typescript dependencies' 2.6292999999132007
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:38.719Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:38.719Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:38.719Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.129Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.129Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.129Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.131Z - Time taken for 'hash changed files from watcher' 0.2864000000990927ms
+Time for 'nx/core/project-json:createNodes' 0.458600000012666
+Time for 'nx/core/package-json:createNodes' 1.23050000006333
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:45.133Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:45.133Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.03440000000409782
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.135Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.135Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.136Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.136Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.136Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.136Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.136Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:45.134Z - [Messenger] Received message, length: 21
+Time for '@nx/next/plugin:createNodes' 9.36559999990277
+Time for 'HASH_GLOB round trip' 1.8226999999023974
+Time for 'deserialize daemon response - HASH_GLOB' 0.020699999993667006
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.156Z - Time taken for 'build-project-configs' 18.958199999993667ms
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 10.205499999923632
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.179Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.179Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.179Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:45.180Z - Time taken for 'total execution time for createProjectGraph()' 24.864599999971688ms
+Time for 'build typescript dependencies' 3.343000000109896
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:47.613Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:47.613Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:47.613Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.025Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.025Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.025Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.028Z - Time taken for 'hash changed files from watcher' 0.2554999999701977ms
+Time for 'nx/core/project-json:createNodes' 0.42610000004060566
+Time for 'nx/core/package-json:createNodes' 1.3256000000983477
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:54.030Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:54.031Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.037999999942258
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.033Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.033Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.034Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.034Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.034Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.034Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.034Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:27:54.032Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 8.914300000062212
+Time for '@nx/next/plugin:createNodes' 12.605299999937415
+Time for 'HASH_GLOB round trip' 2.4878000000026077
+Time for 'deserialize daemon response - HASH_GLOB' 0.023499999893829226
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.053Z - Time taken for 'build-project-configs' 17.893900000024587ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.071Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.072Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.072Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:27:54.072Z - Time taken for 'total execution time for createProjectGraph()' 23.44980000006035ms
+Time for 'build typescript dependencies' 0.03220000001601875
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:45.495Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:45.496Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:45.496Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.897Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.897Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.897Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.900Z - Time taken for 'hash changed files from watcher' 0.26520000002346933ms
+Time for 'nx/core/project-json:createNodes' 0.5964999999850988
+Time for 'nx/core/package-json:createNodes' 1.0294000001158565
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:34:51.899Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:34:51.899Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.12030000006780028
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.904Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.904Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.905Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.905Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.905Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.905Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.905Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:34:51.901Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.452100000111386
+Time for '@nx/next/plugin:createNodes' 10.342299999902025
+Time for 'HASH_GLOB round trip' 2.0304999998770654
+Time for 'deserialize daemon response - HASH_GLOB' 0.023699999786913395
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.918Z - Time taken for 'build-project-configs' 14.252300000051036ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.936Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.936Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.936Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:51.936Z - Time taken for 'total execution time for createProjectGraph()' 19.367199999978766ms
+Time for 'build typescript dependencies' 2.282100000185892
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:55.943Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:55.943Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:34:55.943Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:00.873Z - [WATCHER]: apps/nextn/src/middleware.ts was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:00.873Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:00.873Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.356Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.356Z - [REQUEST]: Dockerfile.frontend,apps/nextn/src/middleware.ts
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.356Z - [REQUEST]: 
+Time for 'nx/core/project-json:createNodes' 0.4063999999780208
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.360Z - Time taken for 'hash changed files from watcher' 0.38700000010430813ms
+Time for 'nx/core/package-json:createNodes' 1.1840000001247972
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:02.357Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:02.357Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.033700000029057264
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.362Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.362Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.363Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.363Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.363Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.363Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.363Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:02.359Z - [Messenger] Received message, length: 22
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.079399999929592
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.380Z - Time taken for 'build-project-configs' 16.758799999952316ms
+Time for '@nx/next/plugin:createNodes' 14.708899999968708
+Time for 'HASH_GLOB round trip' 2.2243999999482185
+Time for 'deserialize daemon response - HASH_GLOB' 0.020699999993667006
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.396Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.397Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.397Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:02.397Z - Time taken for 'total execution time for createProjectGraph()' 19.217399999964982ms
+Time for 'build typescript dependencies' 2.555600000079721
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:08.137Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:08.137Z - [WATCHER]: apps/nextn/src/middleware.ts was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:08.137Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.546Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.546Z - [REQUEST]: apps/nextn/src/middleware.ts
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.546Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.549Z - Time taken for 'hash changed files from watcher' 0.22170000011101365ms
+Time for 'nx/core/project-json:createNodes' 0.4894000000786036
+Time for 'nx/core/package-json:createNodes' 1.099099999992177
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:14.548Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:14.548Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.03700000001117587
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.554Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.554Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.555Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.555Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.555Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.555Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.555Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:14.550Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 8.05710000009276
+Time for '@nx/next/plugin:createNodes' 12.276300000026822
+Time for 'HASH_GLOB round trip' 3.195700000040233
+Time for 'deserialize daemon response - HASH_GLOB' 0.018500000005587935
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.570Z - Time taken for 'build-project-configs' 15.988200000021607ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.590Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.590Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.590Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:14.590Z - Time taken for 'total execution time for createProjectGraph()' 22.325299999909475ms
+Time for 'build typescript dependencies' 2.506999999983236
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:17.443Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:17.444Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:17.445Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:20.013Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:20.013Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:20.013Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.860Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.861Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.861Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.864Z - Time taken for 'hash changed files from watcher' 0.2713000001385808ms
+Time for 'nx/core/project-json:createNodes' 0.41760000004433095
+Time for 'nx/core/package-json:createNodes' 0.9773999999742955
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:23.862Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:23.862Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.02670000004582107
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.867Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.867Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.868Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.868Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.868Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.868Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.868Z - Handled json message HASH_GLOB. Handling time: 1. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:35:23.863Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.379999999888241
+Time for '@nx/next/plugin:createNodes' 10.480100000044331
+Time for 'HASH_GLOB round trip' 1.9970000002067536
+Time for 'deserialize daemon response - HASH_GLOB' 0.016600000206381083
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.882Z - Time taken for 'build-project-configs' 13.937699999893084ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.898Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.898Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.899Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:35:23.899Z - Time taken for 'total execution time for createProjectGraph()' 19.74680000008084ms
+Time for 'build typescript dependencies' 1.7657000001054257
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:25.561Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:25.562Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:25.562Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:30.142Z - [WATCHER]: Processing file changes in outputs
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:30.142Z - [WATCHER]: Dockerfile.frontend was modified
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:30.142Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.963Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.963Z - [REQUEST]: Dockerfile.frontend
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.963Z - [REQUEST]: 
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.965Z - Time taken for 'hash changed files from watcher' 0.32570000016130507ms
+Time for 'nx/core/project-json:createNodes' 0.4030999999959022
+Time for 'nx/core/package-json:createNodes' 1.3861000000033528
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:38:31.963Z - [Messenger] Sending message type: HASH_GLOB
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:38:31.964Z - [Messenger] Message sent
+Time for 'daemon-message-serialization-HASH_GLOB' 0.02410000003874302
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Received raw message of length 71
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Received json message of type HASH_GLOB
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Responding to HASH_GLOB message
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Done responding to the client handleHashGlob
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.970Z - Handled json message HASH_GLOB. Handling time: 0. Response time: 0.
+[NX v22.4.0 Daemon Client] - 2026-02-12T15:38:31.965Z - [Messenger] Received message, length: 21
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 7.724099999992177
+Time for '@nx/next/plugin:createNodes' 10.245399999897927
+Time for 'HASH_GLOB round trip' 1.7770000000018626
+Time for 'deserialize daemon response - HASH_GLOB' 0.01600000006146729
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.985Z - Time taken for 'build-project-configs' 14.513299999991432ms
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.999Z - [SYNC]: collect registered sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.999Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.999Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.4.0 Daemon Server] - 2026-02-12T15:38:31.999Z - Time taken for 'total execution time for createProjectGraph()' 17.140699999872595ms
+Time for 'build typescript dependencies' 1.6532999998889863
+[NX v22.4.0 Daemon Server] - 2026-02-13T00:21:18.244Z - Closed a connection. Number of open connections: 0
+[NX v22.4.0 Daemon Server] - 2026-02-13T00:21:18.264Z - [WATCHER]: Stopping the watcher for C:\Users\Dell\Documents\Golomt 2026\Internal Audit (sources)
+[NX v22.4.0 Daemon Server] - 2026-02-13T00:21:18.280Z - [WATCHER]: Stopping the watcher for C:\Users\Dell\Documents\Golomt 2026\Internal Audit (outputs)
+[NX v22.4.0 Daemon Server] - 2026-02-13T00:21:18.313Z - [NX-CONSOLE]: Cleaning up latest Nx installation from C:\Users\Dell\AppData\Local\Temp\tmp-35704-cabmmuspPNCk
+[NX v22.4.0 Daemon Server] - 2026-02-13T00:21:18.324Z - Server stopped because: "10800000ms of inactivity"

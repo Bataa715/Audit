@@ -45,11 +45,13 @@ COPY --from=backend-deps /backend/node_modules ./node_modules
 COPY --from=backend-build /backend/package.json ./
 COPY --from=backend-build /backend/prisma ./prisma
 
-# Copy frontend
+# Copy frontend (full source + dependencies for Nx serve)
 WORKDIR /app/frontend
-COPY --from=frontend-build /app/dist/apps/nextn/.next/standalone ./
-COPY --from=frontend-build /app/dist/apps/nextn/.next/static ./apps/nextn/.next/static
-COPY --from=frontend-build /app/apps/nextn/public ./apps/nextn/public
+COPY --from=frontend-build /app/apps/nextn ./apps/nextn
+COPY --from=frontend-build /app/node_modules ./node_modules
+COPY --from=frontend-build /app/package.json ./
+COPY --from=frontend-build /app/nx.json ./
+COPY --from=frontend-build /app/tsconfig.base.json ./
 
 # Setup PM2 config
 WORKDIR /app

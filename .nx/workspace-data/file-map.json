@@ -17,16 +17,20 @@
     "projectFileMap": {
       "nextn": [
         {
+          "file": "apps/nextn/.env.local",
+          "hash": "14888617884773961568"
+        },
+        {
           "file": "apps/nextn/components.json",
-          "hash": "3529217790254793838"
+          "hash": "3653499708531943439"
         },
         {
           "file": "apps/nextn/next-env.d.ts",
-          "hash": "2517811901510882550"
+          "hash": "2079576359933084494"
         },
         {
           "file": "apps/nextn/next.config.ts",
-          "hash": "12047910576542391528",
+          "hash": "16426488457098149950",
           "deps": [
             "npm:next"
           ]
@@ -37,7 +41,7 @@
         },
         {
           "file": "apps/nextn/project.json",
-          "hash": "18368744436588551534"
+          "hash": "18376651892159639644"
         },
         {
           "file": "apps/nextn/public/.gitkeep",
@@ -49,7 +53,7 @@
         },
         {
           "file": "apps/nextn/src/app/admin/departments/page.tsx",
-          "hash": "9888616065223639712",
+          "hash": "10497543641636940607",
           "deps": [
             "npm:react",
             "npm:lucide-react",
@@ -59,7 +63,7 @@
         },
         {
           "file": "apps/nextn/src/app/admin/login/page.tsx",
-          "hash": "7372941697195740809",
+          "hash": "13095964955375799576",
           "deps": [
             "npm:react",
             "npm:react-hook-form",
@@ -72,7 +76,7 @@
         },
         {
           "file": "apps/nextn/src/app/admin/page.tsx",
-          "hash": "16472981993401601167",
+          "hash": "7307486002486940769",
           "deps": [
             "npm:react",
             "npm:framer-motion",
@@ -82,7 +86,7 @@
         },
         {
           "file": "apps/nextn/src/app/admin/tools/page.tsx",
-          "hash": "15592279220636933224",
+          "hash": "13696382297117248851",
           "deps": [
             "npm:react",
             "npm:framer-motion",
@@ -92,7 +96,7 @@
         },
         {
           "file": "apps/nextn/src/app/admin/users/page.tsx",
-          "hash": "7096106600521286021",
+          "hash": "13180805115265865664",
           "deps": [
             "npm:react",
             "npm:framer-motion",
@@ -102,7 +106,7 @@
         },
         {
           "file": "apps/nextn/src/app/departments/page.tsx",
-          "hash": "9188711533615825258",
+          "hash": "10011911533435164643",
           "deps": [
             "npm:react",
             "npm:framer-motion",
@@ -115,18 +119,18 @@
         },
         {
           "file": "apps/nextn/src/app/globals.css",
-          "hash": "16627286406680180060"
+          "hash": "14848084701031547225"
         },
         {
           "file": "apps/nextn/src/app/layout.tsx",
-          "hash": "5545732844380537490",
+          "hash": "14475305195496635522",
           "deps": [
             "npm:next"
           ]
         },
         {
           "file": "apps/nextn/src/app/login/page.tsx",
-          "hash": "4691046128989487924",
+          "hash": "9975058480592060147",
           "deps": [
             "npm:react",
             "npm:react-hook-form",
@@ -139,7 +143,7 @@
         },
         {
           "file": "apps/nextn/src/app/page.tsx",
-          "hash": "6013952801210321960",
+          "hash": "6698257121624565770",
           "deps": [
             "npm:next",
             "npm:react"
@@ -147,7 +151,7 @@
         },
         {
           "file": "apps/nextn/src/app/tools/fitness/page.tsx",
-          "hash": "9229806626134565615",
+          "hash": "11446721410584541408",
           "deps": [
             "npm:react",
             "npm:framer-motion",
@@ -158,7 +162,7 @@
         },
         {
           "file": "apps/nextn/src/app/tools/page.tsx",
-          "hash": "5234399557574763293",
+          "hash": "7751996040954331263",
           "deps": [
             "npm:react",
             "npm:next",
@@ -168,7 +172,7 @@
         },
         {
           "file": "apps/nextn/src/app/tools/todo/page.tsx",
-          "hash": "9207115743192837712",
+          "hash": "14988225970087154712",
           "deps": [
             "npm:react",
             "npm:lucide-react",
@@ -177,7 +181,7 @@
         },
         {
           "file": "apps/nextn/src/components/IntroOverlay.tsx",
-          "hash": "8592126282810085864",
+          "hash": "13081501986051749910",
           "deps": [
             "npm:framer-motion",
             "npm:react",
@@ -186,14 +190,14 @@
         },
         {
           "file": "apps/nextn/src/components/MainLayout.tsx",
-          "hash": "2640226163276773271",
+          "hash": "17083899021938836077",
           "deps": [
             "npm:next"
           ]
         },
         {
           "file": "apps/nextn/src/components/ThemeToggle.tsx",
-          "hash": "15050880847604969093",
+          "hash": "13431326494612431932",
           "deps": [
             "npm:lucide-react",
             "npm:next-themes"
@@ -201,14 +205,14 @@
         },
         {
           "file": "apps/nextn/src/components/footer.tsx",
-          "hash": "17724244720177523337",
+          "hash": "11512880855173185433",
           "deps": [
             "npm:next"
           ]
         },
         {
           "file": "apps/nextn/src/components/header.tsx",
-          "hash": "3321829015157439693",
+          "hash": "16681661106006799574",
           "deps": [
             "npm:next",
             "npm:lucide-react",
@@ -218,7 +222,7 @@
         },
         {
           "file": "apps/nextn/src/components/sections/hero-simple.tsx",
-          "hash": "10339066628543506368",
+          "hash": "7793830583090739787",
           "deps": [
             "npm:framer-motion",
             "npm:next",
@@ -227,7 +231,7 @@
         },
         {
           "file": "apps/nextn/src/components/shared/BackButton.tsx",
-          "hash": "5625669348980836115",
+          "hash": "17553018196691103944",
           "deps": [
             "npm:next",
             "npm:lucide-react",
@@ -236,7 +240,7 @@
         },
         {
           "file": "apps/nextn/src/components/shared/DynamicIcon.tsx",
-          "hash": "2668441679658278523",
+          "hash": "15794149998600377222",
           "deps": [
             "npm:react",
             "npm:lucide-react",
@@ -248,7 +252,7 @@
         },
         {
           "file": "apps/nextn/src/components/theme-provider.tsx",
-          "hash": "16310864308773284708",
+          "hash": "15252120611979253921",
           "deps": [
             "npm:react",
             "npm:next-themes"
@@ -256,7 +260,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/accordion.tsx",
-          "hash": "17687642527119580438",
+          "hash": "51986421495950604",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-accordion",
@@ -265,7 +269,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/alert-dialog.tsx",
-          "hash": "5027181215924393155",
+          "hash": "8681879214402945694",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-alert-dialog"
@@ -273,7 +277,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/alert.tsx",
-          "hash": "7470462217227399253",
+          "hash": "42535501434751041",
           "deps": [
             "npm:react",
             "npm:class-variance-authority"
@@ -281,7 +285,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/avatar.tsx",
-          "hash": "7342930884126342070",
+          "hash": "15680228640288026726",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-avatar"
@@ -289,7 +293,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/badge.tsx",
-          "hash": "6098681306769528820",
+          "hash": "17400850886917525187",
           "deps": [
             "npm:react",
             "npm:class-variance-authority"
@@ -297,7 +301,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/button.tsx",
-          "hash": "15082298718384873326",
+          "hash": "251240378082611295",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-slot",
@@ -306,7 +310,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/calendar.tsx",
-          "hash": "5313973658858125042",
+          "hash": "15222765181370063706",
           "deps": [
             "npm:react",
             "npm:lucide-react",
@@ -315,14 +319,14 @@
         },
         {
           "file": "apps/nextn/src/components/ui/card.tsx",
-          "hash": "16441931769360821935",
+          "hash": "3826349848346680314",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/nextn/src/components/ui/chart.tsx",
-          "hash": "9635692747821156573",
+          "hash": "16295511542560597294",
           "deps": [
             "npm:react",
             "npm:recharts"
@@ -330,7 +334,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/checkbox.tsx",
-          "hash": "4654543253273668886",
+          "hash": "12277660652733257528",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-checkbox",
@@ -339,14 +343,14 @@
         },
         {
           "file": "apps/nextn/src/components/ui/collapsible.tsx",
-          "hash": "18077187219340559564",
+          "hash": "13851337390492044859",
           "deps": [
             "npm:@radix-ui/react-collapsible"
           ]
         },
         {
           "file": "apps/nextn/src/components/ui/dialog.tsx",
-          "hash": "7161782395060052802",
+          "hash": "9047013523432409445",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-dialog",
@@ -355,7 +359,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/dropdown-menu.tsx",
-          "hash": "16423126530541724743",
+          "hash": "18376245708030417417",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-dropdown-menu",
@@ -364,7 +368,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/form.tsx",
-          "hash": "5796189444873716659",
+          "hash": "230593167292747273",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-label",
@@ -374,14 +378,14 @@
         },
         {
           "file": "apps/nextn/src/components/ui/input.tsx",
-          "hash": "2824432451867873502",
+          "hash": "7099001962299067423",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/nextn/src/components/ui/label.tsx",
-          "hash": "13196640249435140692",
+          "hash": "6560597272335902386",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-label",
@@ -390,7 +394,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/menubar.tsx",
-          "hash": "5564033780473512997",
+          "hash": "1064766951214920961",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-menubar",
@@ -399,7 +403,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/popover.tsx",
-          "hash": "14935795187293606182",
+          "hash": "7923776507992317962",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-popover"
@@ -407,7 +411,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/progress.tsx",
-          "hash": "13522864361239066727",
+          "hash": "14035123139159608772",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-progress"
@@ -415,7 +419,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/radio-group.tsx",
-          "hash": "11981314841227609741",
+          "hash": "7260932602240170476",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-radio-group",
@@ -424,7 +428,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/scroll-area.tsx",
-          "hash": "11042670560820082617",
+          "hash": "105728079111349858",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-scroll-area"
@@ -432,7 +436,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/select.tsx",
-          "hash": "1253194604305965775",
+          "hash": "11893446337041648753",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-select",
@@ -441,7 +445,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/separator.tsx",
-          "hash": "5613394658134702975",
+          "hash": "18221797930761312845",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-separator"
@@ -449,7 +453,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/sheet.tsx",
-          "hash": "16073616199379979280",
+          "hash": "9209697696497017674",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-dialog",
@@ -459,11 +463,11 @@
         },
         {
           "file": "apps/nextn/src/components/ui/skeleton.tsx",
-          "hash": "4452170092718598082"
+          "hash": "6512887815017139495"
         },
         {
           "file": "apps/nextn/src/components/ui/slider.tsx",
-          "hash": "899905088788593905",
+          "hash": "9033451502363459981",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-slider"
@@ -471,7 +475,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/switch.tsx",
-          "hash": "9290331309658516786",
+          "hash": "1949008161699426126",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-switch"
@@ -479,14 +483,14 @@
         },
         {
           "file": "apps/nextn/src/components/ui/table.tsx",
-          "hash": "16989005440330876054",
+          "hash": "8058513100722986068",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/nextn/src/components/ui/tabs.tsx",
-          "hash": "215031653066305743",
+          "hash": "16592754495803211243",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-tabs"
@@ -494,14 +498,14 @@
         },
         {
           "file": "apps/nextn/src/components/ui/textarea.tsx",
-          "hash": "12520170441015645287",
+          "hash": "6696983000710286807",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/nextn/src/components/ui/toast.tsx",
-          "hash": "12344486022530237749",
+          "hash": "13022275796644628354",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-toast",
@@ -511,11 +515,11 @@
         },
         {
           "file": "apps/nextn/src/components/ui/toaster.tsx",
-          "hash": "11107966702391334148"
+          "hash": "4816561556140212261"
         },
         {
           "file": "apps/nextn/src/components/ui/toggle-group.tsx",
-          "hash": "143271289389919229",
+          "hash": "17210419119175277558",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-toggle-group",
@@ -524,7 +528,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/toggle.tsx",
-          "hash": "13461013063134036397",
+          "hash": "1087373792643815964",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-toggle",
@@ -533,7 +537,7 @@
         },
         {
           "file": "apps/nextn/src/components/ui/tooltip.tsx",
-          "hash": "11571200091848854517",
+          "hash": "17514235454195351654",
           "deps": [
             "npm:react",
             "npm:@radix-ui/react-tooltip"
@@ -541,7 +545,7 @@
         },
         {
           "file": "apps/nextn/src/contexts/AuthContext.tsx",
-          "hash": "9725191313556417142",
+          "hash": "8975547889323395956",
           "deps": [
             "npm:react",
             "npm:js-cookie"
@@ -549,14 +553,14 @@
         },
         {
           "file": "apps/nextn/src/hooks/use-toast.ts",
-          "hash": "5945206918769248340",
+          "hash": "9817904586976653261",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/nextn/src/lib/api.ts",
-          "hash": "9495530572568256567",
+          "hash": "6058343711096673818",
           "deps": [
             "npm:axios",
             "npm:js-cookie"
@@ -564,23 +568,23 @@
         },
         {
           "file": "apps/nextn/src/lib/constants.ts",
-          "hash": "1339822566503455876"
+          "hash": "1147625492521494891"
         },
         {
           "file": "apps/nextn/src/lib/lucide-icons.ts",
-          "hash": "11821988699652342875"
+          "hash": "11474540689883473436"
         },
         {
           "file": "apps/nextn/src/lib/themes.ts",
-          "hash": "10851020917360392866"
+          "hash": "9294100976503495004"
         },
         {
           "file": "apps/nextn/src/lib/types.ts",
-          "hash": "9828854354226385496"
+          "hash": "11218353038332802394"
         },
         {
           "file": "apps/nextn/src/lib/utils.ts",
-          "hash": "15456290709904554663",
+          "hash": "11932429050483444162",
           "deps": [
             "npm:clsx",
             "npm:tailwind-merge"
@@ -588,14 +592,14 @@
         },
         {
           "file": "apps/nextn/src/middleware.ts",
-          "hash": "7818923656671845802",
+          "hash": "14881781516298538036",
           "deps": [
             "npm:next"
           ]
         },
         {
           "file": "apps/nextn/tailwind.config.ts",
-          "hash": "11865099800923157912",
+          "hash": "16484285249724944657",
           "deps": [
             "npm:tailwindcss",
             [
@@ -606,7 +610,7 @@
         },
         {
           "file": "apps/nextn/tsconfig.json",
-          "hash": "8383455141786064370"
+          "hash": "15156365129119363567"
         },
         {
           "file": "apps/nextn/tsconfig.tsbuildinfo",
@@ -616,31 +620,19 @@
       "my-web-workspace": [
         {
           "file": ".dockerignore",
-          "hash": "434222499074934238"
+          "hash": "14323011181304784096"
         },
         {
           "file": ".gitignore",
-          "hash": "13404745306227114823"
-        },
-        {
-          "file": ".nxignore",
-          "hash": "7068312655548632007"
-        },
-        {
-          "file": ".prettierignore",
-          "hash": "13404745306227114823"
-        },
-        {
-          "file": ".prettierrc",
-          "hash": "7534272036188248463"
+          "hash": "8817415434300354792"
         },
         {
           "file": ".vscode/settings.json",
           "hash": "3351510127944057736"
         },
         {
-          "file": "Dockerfile.frontend",
-          "hash": "15367209511360065429"
+          "file": "Dockerfile",
+          "hash": "16760727474937868979"
         },
         {
           "file": "apps/backend/.dockerignore",
@@ -656,19 +648,19 @@
         },
         {
           "file": "apps/backend/Dockerfile",
-          "hash": "16271509274257974700"
+          "hash": "4686490256534281432"
         },
         {
           "file": "apps/backend/nest-cli.json",
-          "hash": "789240945379598733"
+          "hash": "18272654682417215031"
         },
         {
           "file": "apps/backend/package-lock.json",
-          "hash": "12914512461229413133"
+          "hash": "17713719538684471675"
         },
         {
           "file": "apps/backend/package.json",
-          "hash": "1311968619100336482"
+          "hash": "8462640106134953490"
         },
         {
           "file": "apps/backend/prisma/schema.prisma",
@@ -676,67 +668,67 @@
         },
         {
           "file": "apps/backend/prisma/seed.ts",
-          "hash": "7339233219609762791"
+          "hash": "6255299643579068808"
         },
         {
           "file": "apps/backend/src/app.module.ts",
-          "hash": "6345519680665902479"
+          "hash": "5901525820464741501"
         },
         {
           "file": "apps/backend/src/auth/auth.controller.ts",
-          "hash": "6882966923893280514"
+          "hash": "17210770690877520657"
         },
         {
           "file": "apps/backend/src/auth/auth.module.ts",
-          "hash": "16757415257094698174"
+          "hash": "4480181658354870036"
         },
         {
           "file": "apps/backend/src/auth/auth.service.ts",
-          "hash": "14754678111754539301"
+          "hash": "7917267415382306482"
         },
         {
           "file": "apps/backend/src/auth/dto/auth.dto.ts",
-          "hash": "6243337170609082118"
+          "hash": "9749795384425456792"
         },
         {
           "file": "apps/backend/src/auth/jwt-auth.guard.ts",
-          "hash": "490308030298999117"
+          "hash": "12907724048518590633"
         },
         {
           "file": "apps/backend/src/auth/jwt.strategy.ts",
-          "hash": "12475352690525194939"
+          "hash": "193658750440550539"
         },
         {
           "file": "apps/backend/src/departments/departments.controller.ts",
-          "hash": "5784122013774641220"
+          "hash": "11534377031549522861"
         },
         {
           "file": "apps/backend/src/departments/departments.module.ts",
-          "hash": "11424285694279314697"
+          "hash": "18147459342954846465"
         },
         {
           "file": "apps/backend/src/departments/departments.service.ts",
-          "hash": "6449634866514498587"
+          "hash": "1897832677452844395"
         },
         {
           "file": "apps/backend/src/departments/dto/department.dto.ts",
-          "hash": "5722815145587181906"
+          "hash": "17876340567712601123"
         },
         {
           "file": "apps/backend/src/fitness/dto/fitness.dto.ts",
-          "hash": "13170656033027557364"
+          "hash": "15522301183803602492"
         },
         {
           "file": "apps/backend/src/fitness/fitness.controller.ts",
-          "hash": "5001693003351918534"
+          "hash": "12670453107969503569"
         },
         {
           "file": "apps/backend/src/fitness/fitness.module.ts",
-          "hash": "17279429459569067391"
+          "hash": "15062239501702362570"
         },
         {
           "file": "apps/backend/src/fitness/fitness.service.ts",
-          "hash": "18036356637838965009"
+          "hash": "14122757885588707704"
         },
         {
           "file": "apps/backend/src/health.controller.ts",
@@ -744,59 +736,67 @@
         },
         {
           "file": "apps/backend/src/main.ts",
-          "hash": "7366582787151459456"
+          "hash": "16293668809089977531"
         },
         {
           "file": "apps/backend/src/prisma/prisma.module.ts",
-          "hash": "12926404243231209540"
+          "hash": "9953693136448664954"
         },
         {
           "file": "apps/backend/src/prisma/prisma.service.ts",
-          "hash": "12938063004010917406"
+          "hash": "5835391863809641885"
         },
         {
           "file": "apps/backend/src/users/dto/update-user.dto.ts",
-          "hash": "12985541595090020757"
+          "hash": "15807721099050504353"
         },
         {
           "file": "apps/backend/src/users/users.controller.ts",
-          "hash": "10876318802532012702"
+          "hash": "15366699255298043557"
         },
         {
           "file": "apps/backend/src/users/users.module.ts",
-          "hash": "9153994285988814599"
+          "hash": "5099805635674517456"
         },
         {
           "file": "apps/backend/src/users/users.service.ts",
-          "hash": "6237656552010925239"
+          "hash": "5056906131684829834"
         },
         {
           "file": "apps/backend/tsconfig.json",
-          "hash": "1172574332739784691"
+          "hash": "5870510622972732119"
         },
         {
-          "file": "docker-compose.dev.yml",
-          "hash": "17901626892210637086"
+          "file": "build.ps1",
+          "hash": "16180975188881602338"
         },
         {
           "file": "docker-compose.yml",
-          "hash": "3443005482844072321"
+          "hash": "14009793768842556568"
         },
         {
           "file": "graph.json",
-          "hash": "7433436730742992705"
+          "hash": "8405395755516989912"
+        },
+        {
+          "file": "instLL.md",
+          "hash": "7483784062817836644"
         },
         {
           "file": "nx.json",
-          "hash": "10277683524066434595"
+          "hash": "4583427669772883073"
         },
         {
           "file": "package-lock.json",
-          "hash": "14287557135433869536"
+          "hash": "2602597232237151184"
         },
         {
           "file": "package.json",
-          "hash": "7884128711497866917"
+          "hash": "16110092951568552630"
+        },
+        {
+          "file": "pm2.config.js",
+          "hash": "8219011832000633768"
         },
         {
           "file": "project.json",
@@ -808,7 +808,7 @@
         },
         {
           "file": "tsconfig.json",
-          "hash": "17854179586265868211"
+          "hash": "12188570761164080562"
         },
         {
           "file": "tsconfig.tsbuildinfo",

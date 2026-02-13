@@ -1,30 +1,44 @@
-version: '3.8'
-
 services:
-  app:
+  backend:
     build:
-      context: .
+      context: ./apps/backend
       dockerfile: Dockerfile
-    container_name: internal-audit
-    restart: unless-stopped
+    container_name: internal-audit-backend
     ports:
-      - "3001:3001"  # Backend
-      - "9002:9002"  # Frontend
+      - "3001:3001"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=file:/app/backend/prisma/dev.db
+      - DATABASE_URL=file:/app/prisma/dev.db
       - JWT_SECRET=${JWT_SECRET:-your-secret-key-change-this}
-      - NEXT_PUBLIC_API_URL=http://localhost:3001
     volumes:
-      - app-data:/app/backend/prisma
-      - app-logs:/app/logs
+      - backend-data:/app/prisma
     healthcheck:
-      test: ["CMD", "sh", "-c", "wget -q -O /dev/null http://localhost:3001/health && wget -q -O /dev/null http://localhost:9002"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 40s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: internal-audit-frontend
+    ports:
+      - "9002:9002"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9002"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
 
 volumes:
-  app-data:
-  app-logs:
+  backend-data:

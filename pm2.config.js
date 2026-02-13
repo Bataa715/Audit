@@ -20,7 +20,8 @@ module.exports = {
     {
       name: 'frontend',
       cwd: '/app/frontend',
-      script: 'apps/nextn/server.js',
+      script: '/app/frontend/node_modules/.bin/nx',
+      args: 'serve nextn --port 9002 --host 0.0.0.0 --prod',
       instances: 1,
       exec_mode: 'fork',
       env: {
@@ -33,7 +34,7 @@ module.exports = {
       out_file: '/app/logs/frontend-out.log',
       merge_logs: true,
       autorestart: true,
-      max_memory_restart: '500M',
+      max_memory_restart: '1G',
     },
   ],
 };

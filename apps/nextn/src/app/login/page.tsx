@@ -43,6 +43,8 @@ import {
 import Image from 'next/image';
 import { DEPARTMENTS, DEPARTMENT_POSITIONS } from '@/lib/constants';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
 export const dynamic = 'force-dynamic';
 
 // Fixed particle positions
@@ -238,7 +240,7 @@ export default function LoginPage() {
     setIsSearching(true);
     try {
       const response = await fetch(
-        `http://localhost:3001/auth/search?q=${encodeURIComponent(query)}`
+        `${API_URL}/auth/search?q=${encodeURIComponent(query)}`
       );
       const data = await response.json();
 
@@ -271,7 +273,7 @@ export default function LoginPage() {
   ) => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/auth/register', {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
@@ -309,7 +311,7 @@ export default function LoginPage() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/auth/set-password', {
+      const response = await fetch(`${API_URL}/auth/set-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, password: values.password }),
@@ -346,7 +348,7 @@ export default function LoginPage() {
   const handleCheckUser = async (values: z.infer<typeof loginFormSchema>) => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/auth/check-user', {
+      const response = await fetch(`${API_URL}/auth/check-user`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
@@ -396,7 +398,7 @@ export default function LoginPage() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/auth/login-by-id', {
+      const response = await fetch(`${API_URL}/auth/login-by-id`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

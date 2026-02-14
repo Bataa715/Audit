@@ -6,7 +6,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from '../prisma/prisma.service';
+import { DatabaseService } from '../database/database.service';
 import * as bcrypt from 'bcryptjs';
 import {
   SignupDto,
@@ -30,9 +30,13 @@ const DEPARTMENT_CODES: Record<string, string> = {
 @Injectable()
 export class AuthService {
   constructor(
-    private prisma: PrismaService,
+    private database: DatabaseService,
     private jwtService: JwtService
   ) {}
+
+  private get db() {
+    return this.database.raw;
+  }
 
   // Generate user ID based on department
   private async generateUserId(
@@ -49,13 +53,10 @@ export class AuthService {
       .replace(/\s+/g, '');
 
     if (department === 'Удирдлага') {
-      // Format: .NAME-DAG (e.g., .Tuya-DAG)
       return `.${namePart}-${deptCode}`;
     } else if (department === 'Дата анализын алба') {
-      // Format: DAA-NAME (e.g., DAA-Bataa)
       return `${deptCode}-${namePart}`;
     } else {
-      // Format: DAG-DEPTCODE-NAME (e.g., DAG-EAH-Bataa)
       return `DAG-${deptCode}-${namePart}`;
     }
   }
@@ -63,50 +64,34 @@ export class AuthService {
   async signup(signupDto: SignupDto) {
     const { email, password, name, department, position } = signupDto;
 
-    // Generate user ID based on department
     const userId = await this.generateUserId(department, name);
 
-    // Generate email if not provided (username@internal.local format)
     const userEmail =
       email || `${name.toLowerCase().replace(/\s+/g, '.')}@internal.local`;
 
-    // Check if user ID already exists
-    const existingUserById = await this.prisma.user.findFirst({
-      where: { userId },
-    });
-
+    const existingUserById = this.db
+      .prepare('SELECT id FROM users WHERE userId = ?')
+      .get(userId);
     if (existingUserById) {
       throw new ConflictException(
         `Энэ хэрэглэгчийн ID (${userId}) аль хэдийн бүртгэлтэй байна`
       );
     }
 
-    // Хэрэглэгч бүртгэлтэй эсэхийг шалгах
-    const existingUser = await this.prisma.user.findUnique({
-      where: { email: userEmail },
-    });
+    const existingUser = this.db
+      .prepare('SELECT id FROM users WHERE email = ?')
+      .get(userEmail);
 
     if (existingUser) {
-      // If generated email exists, add timestamp
       const timestamp = Date.now();
       const uniqueEmail = `${name.toLowerCase().replace(/\s+/g, '.')}.${timestamp}@internal.local`;
       return this.createUser(
-        uniqueEmail,
-        password,
-        name,
-        department,
-        position,
-        userId
+        uniqueEmail, password, name, department, position, userId
       );
     }
 
     return this.createUser(
-      userEmail,
-      password,
-      name,
-      department,
-      position,
-      userId
+      userEmail, password, name, department, position, userId
     );
   }
 
@@ -116,61 +101,49 @@ export class AuthService {
     name: string,
     department: string,
     position: string,
-    userId: string
+    usrId: string
   ) {
-    // Нууц үгийг hash-лах
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Department-г олох эсвэл үүсгэх
-    let dept = await this.prisma.department.findUnique({
-      where: { name: department },
-    });
+    let dept = this.db
+      .prepare('SELECT * FROM departments WHERE name = ?')
+      .get(department) as any;
 
     if (!dept) {
-      dept = await this.prisma.department.create({
-        data: {
-          name: department,
-          description: '',
-          employeeCount: 1,
-        },
-      });
+      const deptId = this.database.uuid();
+      this.db
+        .prepare(
+          'INSERT INTO departments (id, name, description, employeeCount) VALUES (?, ?, ?, ?)'
+        )
+        .run(deptId, department, '', 1);
+      dept = { id: deptId, name: department };
     } else {
-      await this.prisma.department.update({
-        where: { id: dept.id },
-        data: { employeeCount: dept.employeeCount + 1 },
-      });
+      this.db
+        .prepare(
+          'UPDATE departments SET employeeCount = employeeCount + 1 WHERE id = ?'
+        )
+        .run(dept.id);
     }
 
-    // Хэрэглэгч үүсгэх
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        name,
-        position,
-        userId,
-        departmentId: dept.id,
-        isAdmin: false,
-        allowedTools: JSON.stringify(['todo', 'fitness']),
-      },
-    });
+    const id = this.database.uuid();
+    this.db
+      .prepare(
+        `INSERT INTO users (id, email, password, name, position, userId, departmentId, isAdmin, allowedTools)
+         VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?)`
+      )
+      .run(id, email, hashedPassword, name, position, usrId, dept.id, JSON.stringify(['todo', 'fitness']));
 
-    // JWT token үүсгэх
-    const token = this.jwtService.sign({
-      id: user.id,
-      email: user.email,
-      userId: user.userId,
-    });
+    const token = this.jwtService.sign({ id, email, userId: usrId });
 
     return {
       user: {
-        id: user.id,
-        email: user.email,
-        userId: user.userId,
-        name: user.name,
-        position: user.position,
-        department: department,
-        isAdmin: user.isAdmin,
+        id,
+        email,
+        userId: usrId,
+        name,
+        position,
+        department,
+        isAdmin: false,
       },
       token,
     };
@@ -179,23 +152,21 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const { department, username, password } = loginDto;
 
-    // Хэлтэс олох
-    const dept = await this.prisma.department.findUnique({
-      where: { name: department },
-    });
+    const dept = this.db
+      .prepare('SELECT * FROM departments WHERE name = ?')
+      .get(department) as any;
 
     if (!dept) {
       throw new UnauthorizedException('Хэлтэс олдсонгүй');
     }
 
-    // Хэрэглэгч олох (хэлтэс ба нэрээр)
-    const user = await this.prisma.user.findFirst({
-      where: {
-        name: username,
-        departmentId: dept.id,
-      },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.name = ? AND u.departmentId = ?`
+      )
+      .get(username, dept.id) as any;
 
     if (!user) {
       throw new UnauthorizedException(
@@ -203,29 +174,23 @@ export class AuthService {
       );
     }
 
-    // Check if user is active
     if (!user.isActive) {
       throw new UnauthorizedException(
         'Таны эрх идэвхгүй байна. Админд хандана уу.'
       );
     }
 
-    // Нууц үг шалгах
     const isPasswordValid = await bcrypt.compare(password, user.password);
-
     if (!isPasswordValid) {
       throw new UnauthorizedException(
         'Хэрэглэгч олдсонгүй эсвэл нууц үг буруу байна'
       );
     }
 
-    // Update last login time
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: { lastLoginAt: new Date() },
-    });
+    this.db
+      .prepare('UPDATE users SET lastLoginAt = datetime(\'now\') WHERE id = ?')
+      .run(user.id);
 
-    // JWT token үүсгэх
     const token = this.jwtService.sign({
       id: user.id,
       email: user.email,
@@ -239,9 +204,9 @@ export class AuthService {
         userId: user.userId,
         name: user.name,
         position: user.position,
-        department: user.department?.name,
+        department: user.departmentName,
         departmentId: user.departmentId,
-        isAdmin: user.isAdmin,
+        isAdmin: !!user.isAdmin,
         allowedTools: user.allowedTools ? JSON.parse(user.allowedTools) : [],
       },
       token,
@@ -251,14 +216,13 @@ export class AuthService {
   async adminLogin(adminLoginDto: AdminLoginDto) {
     const { username, password } = adminLoginDto;
 
-    // Find user by name or userId
-    const user = await this.prisma.user.findFirst({
-      where: {
-        OR: [{ name: username }, { userId: username }],
-        isAdmin: true,
-      },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE (u.name = ? OR u.userId = ?) AND u.isAdmin = 1`
+      )
+      .get(username, username) as any;
 
     if (!user) {
       throw new UnauthorizedException(
@@ -266,27 +230,21 @@ export class AuthService {
       );
     }
 
-    // Check if user is active
     if (!user.isActive) {
       throw new UnauthorizedException('Таны эрх идэвхгүй байна.');
     }
 
-    // Нууц үг шалгах
     const isPasswordValid = await bcrypt.compare(password, user.password);
-
     if (!isPasswordValid) {
       throw new UnauthorizedException(
         'Админ хэрэглэгч олдсонгүй эсвэл нууц үг буруу байна'
       );
     }
 
-    // Update last login time
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: { lastLoginAt: new Date() },
-    });
+    this.db
+      .prepare('UPDATE users SET lastLoginAt = datetime(\'now\') WHERE id = ?')
+      .run(user.id);
 
-    // JWT token үүсгэх
     const token = this.jwtService.sign({
       id: user.id,
       email: user.email,
@@ -300,9 +258,9 @@ export class AuthService {
         userId: user.userId,
         name: user.name,
         position: user.position,
-        department: user.department?.name,
+        department: user.departmentName,
         departmentId: user.departmentId,
-        isAdmin: user.isAdmin,
+        isAdmin: !!user.isAdmin,
         allowedTools: user.allowedTools ? JSON.parse(user.allowedTools) : [],
       },
       token,
@@ -310,61 +268,50 @@ export class AuthService {
   }
 
   async getUsersByDepartment(departmentName: string) {
-    // Хэлтэс олох
-    const dept = await this.prisma.department.findUnique({
-      where: { name: departmentName },
-      include: {
-        users: {
-          where: { isActive: true },
-          select: {
-            id: true,
-            name: true,
-            position: true,
-          },
-        },
-      },
-    });
+    const users = this.db
+      .prepare(
+        `SELECT u.id, u.name, u.position
+         FROM users u JOIN departments d ON u.departmentId = d.id
+         WHERE d.name = ? AND u.isActive = 1`
+      )
+      .all(departmentName) as any[];
 
-    if (!dept) {
-      return { users: [] };
-    }
-
-    return {
-      users: dept.users,
-    };
+    return { users: users || [] };
   }
 
   async validateUser(userId: string) {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.id = ?`
+      )
+      .get(userId) as any;
 
-    if (!user) {
-      return null;
-    }
+    if (!user) return null;
 
     return {
       id: user.id,
       userId: user.userId,
       name: user.name,
       position: user.position,
-      department: user.department?.name,
+      department: user.departmentName,
       departmentId: user.departmentId,
-      isAdmin: user.isAdmin,
+      isAdmin: !!user.isAdmin,
       allowedTools: user.allowedTools ? JSON.parse(user.allowedTools) : [],
     };
   }
 
-  // Login by user ID (e.g., DAG-EAH-BATAA)
   async loginById(loginByIdDto: LoginByIdDto) {
     const { userId, password } = loginByIdDto;
 
-    // Find user by userId
-    const user = await this.prisma.user.findFirst({
-      where: { userId },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.userId = ?`
+      )
+      .get(userId) as any;
 
     if (!user) {
       throw new UnauthorizedException(
@@ -372,29 +319,23 @@ export class AuthService {
       );
     }
 
-    // Check if user is active
     if (!user.isActive) {
       throw new UnauthorizedException(
         'Таны эрх идэвхгүй байна. Админд хандана уу.'
       );
     }
 
-    // Нууц үг шалгах
     const isPasswordValid = await bcrypt.compare(password, user.password);
-
     if (!isPasswordValid) {
       throw new UnauthorizedException(
         'Хэрэглэгч олдсонгүй эсвэл нууц үг буруу байна'
       );
     }
 
-    // Update last login time
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: { lastLoginAt: new Date() },
-    });
+    this.db
+      .prepare('UPDATE users SET lastLoginAt = datetime(\'now\') WHERE id = ?')
+      .run(user.id);
 
-    // JWT token үүсгэх
     const token = this.jwtService.sign({
       id: user.id,
       email: user.email,
@@ -408,56 +349,51 @@ export class AuthService {
         userId: user.userId,
         name: user.name,
         position: user.position,
-        department: user.department?.name,
+        department: user.departmentName,
         departmentId: user.departmentId,
-        isAdmin: user.isAdmin,
+        isAdmin: !!user.isAdmin,
         allowedTools: user.allowedTools ? JSON.parse(user.allowedTools) : [],
       },
       token,
     };
   }
 
-  // Search users by userId for autocomplete
   async searchUsersByUserId(query: string) {
     if (!query || query.length < 2) {
       return { users: [] };
     }
 
-    const users = await this.prisma.user.findMany({
-      where: {
-        AND: [
-          { isActive: true },
-          {
-            OR: [
-              { userId: { contains: query } },
-              { name: { contains: query } },
-            ],
-          },
-        ],
-      },
-      include: { department: true },
-      take: 10,
-    });
+    const pattern = `%${query}%`;
+    const users = this.db
+      .prepare(
+        `SELECT u.id, u.name, u.userId, u.position, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.isActive = 1 AND (u.userId LIKE ? OR u.name LIKE ?)
+         LIMIT 10`
+      )
+      .all(pattern, pattern) as any[];
 
     return {
-      users: users.map(user => ({
-        id: user.id,
-        name: user.name,
-        userId: user.userId || '',
-        department: user.department?.name || '',
-        position: user.position,
+      users: users.map(u => ({
+        id: u.id,
+        name: u.name,
+        userId: u.userId || '',
+        department: u.departmentName || '',
+        position: u.position,
       })),
     };
   }
 
-  // Check if user exists and has password
   async checkUser(checkUserDto: CheckUserDto) {
     const { userId } = checkUserDto;
 
-    const user = await this.prisma.user.findFirst({
-      where: { userId },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.userId = ?`
+      )
+      .get(userId) as any;
 
     if (!user) {
       return {
@@ -469,7 +405,6 @@ export class AuthService {
       };
     }
 
-    // Check if user has a password set (not null/empty or a placeholder)
     const hasPassword =
       user.password &&
       user.password.length > 0 &&
@@ -480,22 +415,19 @@ export class AuthService {
       hasPassword,
       userId: user.userId,
       name: user.name,
-      department: user.department?.name || null,
-      isActive: user.isActive,
+      department: user.departmentName || null,
+      isActive: !!user.isActive,
     };
   }
 
-  // Register a new user without password
   async registerUser(registerUserDto: RegisterUserDto) {
     const { department, position, name } = registerUserDto;
 
-    // Generate user ID based on department
     const userId = await this.generateUserId(department, name);
 
-    // Check if user ID already exists
-    const existingUser = await this.prisma.user.findFirst({
-      where: { userId },
-    });
+    const existingUser = this.db
+      .prepare('SELECT id FROM users WHERE userId = ?')
+      .get(userId);
 
     if (existingUser) {
       throw new ConflictException(
@@ -503,86 +435,73 @@ export class AuthService {
       );
     }
 
-    // Generate email
     const email = `${name.toLowerCase().replace(/\s+/g, '.')}.${Date.now()}@internal.local`;
 
-    // Department-г олох эсвэл үүсгэх
-    let dept = await this.prisma.department.findUnique({
-      where: { name: department },
-    });
+    let dept = this.db
+      .prepare('SELECT * FROM departments WHERE name = ?')
+      .get(department) as any;
 
     if (!dept) {
-      dept = await this.prisma.department.create({
-        data: {
-          name: department,
-          description: '',
-          employeeCount: 1,
-        },
-      });
+      const deptId = this.database.uuid();
+      this.db
+        .prepare(
+          'INSERT INTO departments (id, name, description, employeeCount) VALUES (?, ?, ?, ?)'
+        )
+        .run(deptId, department, '', 1);
+      dept = { id: deptId };
     } else {
-      await this.prisma.department.update({
-        where: { id: dept.id },
-        data: { employeeCount: dept.employeeCount + 1 },
-      });
+      this.db
+        .prepare(
+          'UPDATE departments SET employeeCount = employeeCount + 1 WHERE id = ?'
+        )
+        .run(dept.id);
     }
 
-    // Create user with placeholder password (to be set by user on first login)
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        password: 'PENDING_PASSWORD', // Placeholder - user must set password on first login
-        name,
-        position,
-        userId,
-        departmentId: dept.id,
-        isAdmin: false,
-        isActive: true,
-        allowedTools: JSON.stringify(['todo', 'fitness']),
-      },
-    });
+    const id = this.database.uuid();
+    this.db
+      .prepare(
+        `INSERT INTO users (id, email, password, name, position, userId, departmentId, isAdmin, isActive, allowedTools)
+         VALUES (?, ?, ?, ?, ?, ?, ?, 0, 1, ?)`
+      )
+      .run(id, email, 'PENDING_PASSWORD', name, position, userId, dept.id, JSON.stringify(['todo', 'fitness']));
 
     return {
       success: true,
-      userId: user.userId,
-      name: user.name,
-      department: department,
-      position: user.position,
+      userId,
+      name,
+      department,
+      position,
       message: 'Бүртгэл амжилттай. Нууц үгээ үүсгэнэ үү.',
     };
   }
 
-  // Set password for first-time user
   async setPassword(setPasswordDto: SetPasswordDto) {
     const { userId, password } = setPasswordDto;
 
-    // Find user by userId
-    const user = await this.prisma.user.findFirst({
-      where: { userId },
-      include: { department: true },
-    });
+    const user = this.db
+      .prepare(
+        `SELECT u.*, d.name as departmentName
+         FROM users u LEFT JOIN departments d ON u.departmentId = d.id
+         WHERE u.userId = ?`
+      )
+      .get(userId) as any;
 
     if (!user) {
       throw new NotFoundException('Хэрэглэгч олдсонгүй');
     }
 
-    // Check if user already has a real password
     if (user.password && !user.password.startsWith('PENDING_')) {
       throw new BadRequestException('Нууц үг аль хэдийн тохируулагдсан байна');
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Update user with new password
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: {
-        password: hashedPassword,
-        lastLoginAt: new Date(),
-      },
-    });
+    this.db
+      .prepare(
+        'UPDATE users SET password = ?, lastLoginAt = datetime(\'now\') WHERE id = ?'
+      )
+      .run(hashedPassword, user.id);
 
-    // Generate JWT token and log in the user
     const token = this.jwtService.sign({
       id: user.id,
       email: user.email,
@@ -597,23 +516,22 @@ export class AuthService {
         userId: user.userId,
         name: user.name,
         position: user.position,
-        department: user.department?.name,
+        department: user.departmentName,
         departmentId: user.departmentId,
-        isAdmin: user.isAdmin,
+        isAdmin: !!user.isAdmin,
         allowedTools: user.allowedTools ? JSON.parse(user.allowedTools) : [],
       },
       token,
     };
   }
 
-  // Generate userId prefix based on department (for frontend preview)
   getUserIdPrefix(department: string): string {
     const deptCode = DEPARTMENT_CODES[department] || 'USR';
 
     if (department === 'Удирдлага') {
-      return `.`; // Will become .NAME-DAG
+      return `.`;
     } else {
-      return `DAG-${deptCode}-`; // Will become DAG-DEPTCODE-NAME
+      return `DAG-${deptCode}-`;
     }
   }
 }

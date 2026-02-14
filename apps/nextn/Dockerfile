@@ -1,29 +1,31 @@
+# ============================================
+# Frontend (Next.js) — Standalone Image
+# ============================================
 FROM node:20-alpine AS base
 RUN apk add --no-cache libc6-compat
 
-# Dependencies
+# --- Dependencies ---
 FROM base AS deps
 WORKDIR /app
 COPY package*.json nx.json tsconfig*.json ./
 COPY apps/nextn/ ./apps/nextn/
 RUN npm ci --legacy-peer-deps
 
-# Builder - build Next.js directly (not via Nx) for clean Docker paths
+# --- Build ---
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/nextn ./apps/nextn
 COPY --from=deps /app/package.json ./
 COPY --from=deps /app/nx.json ./
 COPY --from=deps /app/tsconfig*.json ./
+COPY --from=deps /app/apps/nextn ./apps/nextn
 
-# Build directly with next build inside the app directory
 WORKDIR /app/apps/nextn
 RUN ../../node_modules/.bin/next build
 
-# Runner
+# --- Production ---
 FROM base AS runner
-WORKDIR /app/apps/nextn
+WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -33,7 +35,7 @@ ENV HOSTNAME=0.0.0.0
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Copy standalone output (includes server.js + node_modules)
+# Next.js standalone output
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextn/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextn/.next/static ./apps/nextn/.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextn/public ./apps/nextn/public

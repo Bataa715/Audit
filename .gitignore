@@ -4,3 +4,11 @@ node_modules
 *.next/cache
 dist
 build
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+**/.env
+**/.env.local
